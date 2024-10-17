@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "name": "book-management-expressjs",
+  "version": "1.0.0",
+  "description": "Book Management",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rjuzariah/book-management-expressjs.git"
+  },
+  "author": "Juzariah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rjuzariah/book-management-expressjs/issues"
+  },
+  "homepage": "https://github.com/Rjuzariah/book-management-expressjs#readme"
+}

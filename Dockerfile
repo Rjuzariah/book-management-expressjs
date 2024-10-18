@@ -20,5 +20,8 @@ COPY .env .env
 # Expose the port that the application will run on
 EXPOSE 3000
 
+# Start the app and run migrations
+CMD ["npm", "run", "migrate-and-start"]
+
 # Define the command to run your app
 CMD ["npx", "ts-node", "index.ts"]

@@ -16,6 +16,7 @@ app.get('/', (req:Request, res:Response) => {
   res.send('Hello World! Ria')
 })
 
+app.use(express.json());
 app.use('/api', bookRoutes);
 
 // Function to run migrations

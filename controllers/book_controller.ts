@@ -17,11 +17,6 @@ router.get('/books', async (req, res) => {
 // POST a new book
 router.post('/books', async (req, res) => {
   try {
-    console.log('qqqqqqqq')
-    console.log('qqqqqqqq')
-    console.log(req.query)
-    console.log(req.body)
-    req.body = {title:"Book1"}
     const newBook = await Book.create(req.body);
     res.status(201).json(newBook);
   } catch (error) {

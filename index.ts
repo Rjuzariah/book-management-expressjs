@@ -2,12 +2,14 @@ import express, { Express, Request, Response } from "express";
 import sequelize from './models/database';
 import bookRoutes from './controllers/book_controller';
 
+const cors = require('cors');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app: Express = express()
 const port = process.env.PORT;
+app.use(cors());
 
 
 app.get('/', (req:Request, res:Response) => {

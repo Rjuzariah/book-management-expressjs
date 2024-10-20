@@ -1,24 +1,26 @@
 {
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "mysql2": "^3.11.3",
-    "sequelize": "^6.37.4",
-    "body-parser": "^1.19.0"
+    "sequelize": "^6.37.4"
   },
   "name": "book-management-expressjs",
   "version": "1.0.0",
   "description": "Book Management",
   "main": "index.js",
   "devDependencies": {
+    "@types/body-parser": "^1.19.2",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.6",
-    "typescript": "^5.6.3",
     "cors": "^2.8.5",
-    "@types/body-parser": "^1.19.2"
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "typescript": "^5.6.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "migrate": "sequelize db:migrate",
     "migrate-and-start": "npm run migrate && npm start"
   },

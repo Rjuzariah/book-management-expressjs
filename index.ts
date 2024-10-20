@@ -3,6 +3,7 @@ import sequelize from './models/database';
 import bookRoutes from './controllers/book_controller';
 import bodyParser from 'body-parser';
 import authMiddleware from './middleware/authMiddleware'; // Import the auth middleware
+import seedBooks from "./models/seed_book";
 
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -33,6 +34,7 @@ const runMigrations = async () => {
   try {
     // Sync models (including migrations)
     await sequelize.sync();
+    await seedBooks();
 
     console.log('Database migrated successfully!');
   } catch (error) {

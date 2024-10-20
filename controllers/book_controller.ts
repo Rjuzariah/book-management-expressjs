@@ -6,10 +6,25 @@ const router = Router();
 
 // GET all books
 router.get('/books', async (req, res) => {
+  const page = parseInt(req.query.page as string) || 1; // Default to page 1
+  const limit = parseInt(req.query.limit as string) || 10; // Default to 10 items per page
+  const offset = (page - 1) * limit;
+
   try {
-    const books = await Book.findAll();
-    res.status(200).json(books);
-  } catch (error) {
+    const { count, rows } = await Book.findAndCountAll({
+      limit,
+      offset,
+      order: [['title', 'ASC']], // Order books by title
+    });
+    
+    res.status(200).json({
+      totalItems: count,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page,
+      books: rows
+    });
+  }
+  catch (error) {
     res.status(500).json({ message: 'Failed to retrieve books.' });
   }
 });

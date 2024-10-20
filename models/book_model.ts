@@ -21,6 +21,9 @@ Book.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Title is required.' },
+      },
     },
     author: {
       type: DataTypes.STRING,

@@ -1,6 +1,8 @@
 import express, { Express, Request, Response } from "express";
 import sequelize from './models/database';
 import bookRoutes from './controllers/book_controller';
+import bodyParser from 'body-parser';
+import authMiddleware from './middleware/authMiddleware'; // Import the auth middleware
 
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -10,6 +12,13 @@ dotenv.config();
 const app: Express = express()
 const port = process.env.PORT;
 app.use(cors());
+
+// Middleware
+app.use(bodyParser.json());
+
+// Use the authentication middleware for all routes
+const expectedToken = "book-management-static-token"; // Define your static token
+app.use(authMiddleware(expectedToken));
 
 
 app.get('/', (req:Request, res:Response) => {
@@ -24,6 +33,7 @@ const runMigrations = async () => {
   try {
     // Sync models (including migrations)
     await sequelize.sync();
+
     console.log('Database migrated successfully!');
   } catch (error) {
     console.error('Error running migrations:', error);

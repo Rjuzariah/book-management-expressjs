@@ -1,0 +1,21 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Book Management API",
+      "version": "1.0.0",
+      "description": "API documentation for Book Management."
+    },
+    "paths": {
+      "/api/books": {
+        "get": {
+          "summary": "Get all Books",
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            }
+          }
+        }
+      }
+    }
+  }
+  
